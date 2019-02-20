@@ -1,0 +1,9 @@
+C:\Users\L31303\Desktop\plateDetection\bin\Debug\plateDetection.exe.config
+C:\Users\L31303\Desktop\plateDetection\bin\Debug\plateDetection.exe
+C:\Users\L31303\Desktop\plateDetection\bin\Debug\plateDetection.pdb
+C:\Users\L31303\Desktop\plateDetection\obj\Debug\plateDetection.csprojResolveAssemblyReference.cache
+C:\Users\L31303\Desktop\plateDetection\obj\Debug\plateDetection.Form1.resources
+C:\Users\L31303\Desktop\plateDetection\obj\Debug\plateDetection.Properties.Resources.resources
+C:\Users\L31303\Desktop\plateDetection\obj\Debug\plateDetection.csproj.GenerateResource.Cache
+C:\Users\L31303\Desktop\plateDetection\obj\Debug\plateDetection.exe
+C:\Users\L31303\Desktop\plateDetection\obj\Debug\plateDetection.pdb
