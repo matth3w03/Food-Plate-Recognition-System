@@ -93,7 +93,6 @@ namespace plateDetection
                 
                 Invoke(new Action(() =>
                 {
-                    label7.Text = "Plates Detected";
                     pictureBox2.Visible = false;
                     label5.Refresh();
                 }));
@@ -110,10 +109,10 @@ namespace plateDetection
             var client = new HttpClient();
 
             // Request headers - replace this example key with your valid subscription key.
-            client.DefaultRequestHeaders.Add("Prediction-Key", "ce546ed2835847959996cabc9ea8f92b");
+            client.DefaultRequestHeaders.Add("Prediction-Key", "22bdf38731ec4be3b5890968bbdff4e1");
 
             // Prediction URL - replace this example URL with your valid prediction URL.
-            string url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Prediction/3855544b-8386-459e-a6ba-b71abf0949ed/image?iterationId=fe00a466-c8c5-441f-8477-6ea13e2c8208";
+            string url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Prediction/df31870b-2fe1-482e-a6d5-be21c13f6c7b/image?iterationId=8562d487-c25c-491c-bcfa-ca0dab597f79";
 
             HttpResponseMessage response;
 
@@ -154,6 +153,7 @@ namespace plateDetection
                 json = json.Replace(":", "");
                 json = json.Replace(" ", "");
                 string[] jsons = json.Split(new char[] { ',' });
+                //Console.WriteLine(json); Debug to check probabilities and tags
 
                 //Creates a list of the results
                 List<string> results = new List<string>();
@@ -169,8 +169,8 @@ namespace plateDetection
                     }
                 }
                 string plateName = "";
-                string veggies = "vegetable";
-                string meat = "meat";
+                string chicken = "ChickenNuggets";
+                string fries = "Fries";
                 for(int i = 0; i < results.Count; i++)
                 {
                     if (i % 2 != 0) // check odd - Tag Name
@@ -178,7 +178,7 @@ namespace plateDetection
                         if(prob[prob.Count - 1] < 0.2)
                         {
                         }
-                        else if(tags.Count < 2) //only get top 2 results
+                        else if(tags.Count < 1) //only get top result AKA HIGHEST PROBABILITY
                         {
                             tags.Add(results[i]);
                         }
@@ -193,13 +193,13 @@ namespace plateDetection
                 foreach (string x in tags.ToList())
                 {
                     //In each tags, if the tags contains veggies or meat, it will remove the tag and show the plate
-                    if (x.Contains(veggies))
+                    if (x.Contains(fries))
                     {
                         vegCount++;
                         plateCount++;
                         price += 0.5;
                         tags.Remove(x);
-                        plateName = "Vegetables [" + tags[0] + "]";
+                        plateName = "French Fries";
 
                         Invoke(new Action(() =>
                         {
@@ -215,13 +215,13 @@ namespace plateDetection
                             label5.Text = "$" + price.ToString("0.##");
                         }));
                     }
-                    else if (x.Contains(meat))
+                    else if (x.Contains(chicken))
                     {
                         meatCount++;
                         plateCount++;
                         price += 1.00;
                         tags.Remove(x);
-                        plateName = "Meat [" + tags[0] + "]";
+                        plateName = "Chicken Nuggets";
 
                         Invoke(new Action(() =>
                         {
@@ -356,8 +356,8 @@ namespace plateDetection
 
             panel.RowCount = 1;
             panel.RowStyles.Add(new RowStyle(SizeType.Absolute, 50));
-            panel.Controls.Add(new Label() { Text = "Plate Contents", Font = new Font("Century Gothic", 18, FontStyle.Regular), ForeColor = Color.White, AutoSize = true, Height = 50 }, 0, panel.RowCount - 1);
-            panel.Controls.Add(new Label() { Text = "Price", Font = new Font("Century Gothic", 18, FontStyle.Regular), ForeColor = Color.White, AutoSize = true, Height = 50 }, 1, panel.RowCount - 1);
+            panel.Controls.Add(new Label() { Text = "Plate Contents", Font = new Font("Arial", 18, FontStyle.Bold), ForeColor = Color.Black, AutoSize = true, Height = 50 }, 0, panel.RowCount - 1);
+            panel.Controls.Add(new Label() { Text = "Price", Font = new Font("Arial", 18, FontStyle.Bold), ForeColor = Color.Black, AutoSize = true, Height = 50 }, 1, panel.RowCount - 1);
         }
     }
 

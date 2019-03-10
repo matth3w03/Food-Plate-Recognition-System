@@ -83,6 +83,16 @@ namespace plateDetection.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap camera {
+            get {
+                object obj = ResourceManager.GetObject("camera", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Gray_circles_rotate {
             get {
                 object obj = ResourceManager.GetObject("Gray_circles_rotate", resourceCulture);
@@ -96,6 +106,26 @@ namespace plateDetection.Properties {
         internal static System.Drawing.Bitmap Loading_icon {
             get {
                 object obj = ResourceManager.GetObject("Loading_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PixleIcon_1 {
+            get {
+                object obj = ResourceManager.GetObject("PixleIcon 1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PixleIcon_1_2 {
+            get {
+                object obj = ResourceManager.GetObject("PixleIcon 1@2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
