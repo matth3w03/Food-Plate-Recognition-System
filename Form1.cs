@@ -256,19 +256,7 @@ namespace plateDetection
 
         private void button1_Click(object sender, EventArgs e)
         {
-            resetRows(tableLayoutPanel2);
-            meatCount = 0;
-            vegCount = 0;
-            price = 0.0;
-            plateCount = 0;
-            empty = false;
-            label5.Text = "$" + price;
-            if (capture == null)
-            {
-                capture = new Emgu.CV.VideoCapture(1);
-            }
-            capture.ImageGrabbed += Capture_ImageGrabbed1;
-            capture.Start();
+            Console.WriteLine("A staff will be coming shortly to assist you.");
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -358,6 +346,23 @@ namespace plateDetection
             panel.RowStyles.Add(new RowStyle(SizeType.Absolute, 50));
             panel.Controls.Add(new Label() { Text = "Plate Contents", Font = new Font("Arial", 18, FontStyle.Bold), ForeColor = Color.Black, AutoSize = true, Height = 50 }, 0, panel.RowCount - 1);
             panel.Controls.Add(new Label() { Text = "Price", Font = new Font("Arial", 18, FontStyle.Bold), ForeColor = Color.Black, AutoSize = true, Height = 50 }, 1, panel.RowCount - 1);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            resetRows(tableLayoutPanel2);
+            meatCount = 0;
+            vegCount = 0;
+            price = 0.0;
+            plateCount = 0;
+            empty = false;
+            label5.Text = "$" + price;
+            if (capture == null)
+            {
+                capture = new Emgu.CV.VideoCapture(1);
+            }
+            capture.ImageGrabbed += Capture_ImageGrabbed1;
+            capture.Start();
         }
     }
 
