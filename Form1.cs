@@ -45,11 +45,19 @@ namespace plateDetection
                 pictureBox1.Image = m.ToImage<Bgr, byte>().Bitmap;
 
                 CircleF[] circles = CvInvoke.HoughCircles(blur, HoughType.Gradient, 2, gray.Rows/16, 20, 150, 80, 100);
-                
-                if(circles.Count() >= 1){
+
+                if (capture != null)
+                {
+                    capture.ImageGrabbed -= Capture_ImageGrabbed1;
+                    capture.Stop();
+                    capture = null;
+                }
+
+                if (circles.Count() >= 1){
                     Mat copy = m.Clone();
                     //img is the image you applied Hough to
                     m.Save("test.png");
+
                     for (int i = 0; i < circles.Count(); i++)
                     {
                         CvInvoke.Circle(copy, Point.Round(circles[i].Center), (int)circles[i].Radius, new MCvScalar(255, 0, 0), 3, Emgu.CV.CvEnum.LineType.AntiAlias, 0);
@@ -77,12 +85,7 @@ namespace plateDetection
                     
                     //-1 is to fill the area
                     //detectPlate();
-                    if (capture != null)
-                    {
-                        capture.ImageGrabbed -= Capture_ImageGrabbed1;
-                        capture.Stop();
-                        capture = null;
-                    }
+                    
 
                 }
                 if (empty == true)
